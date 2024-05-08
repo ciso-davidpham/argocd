@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kube-prometheus-stack-crds
-  namespace: argocd
+  namespace: monitoring
   annotations:
     argocd.argoproj.io/sync-wave: "2"
   labels:
@@ -10,8 +10,8 @@ metadata:
 spec:
   destination:
     name: in-cluster
-    namespace: argocd
-  project: default
+    namespace: monitoring
+  project: monitoring
   source:
     repoURL: https://github.com/prometheus-community/helm-charts.git
     path: charts/kube-prometheus-stack/crds/
